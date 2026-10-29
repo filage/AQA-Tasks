@@ -10,6 +10,8 @@ import java.time.Duration;
 public class ServiceSelectionPage {
 
     private final By deathRegistrationButton = By.xpath("//button[normalize-space(.)='Регистрация смерти']");
+    private final By marriageRegistrationButton = By.xpath("//button[normalize-space(.)='Регистрация брака']");
+    private final By birthRegistrationButton = By.xpath("//button[normalize-space(.)='Регистрация рождения']");
 
     private final WebDriverWait wait;
 
@@ -19,5 +21,12 @@ public class ServiceSelectionPage {
 
     public void selectDeathRegistration() {
         wait.until(ExpectedConditions.elementToBeClickable(deathRegistrationButton)).click();
+    }
+
+    public void selectMarriageRegistration() {
+        wait.until(ExpectedConditions.elementToBeClickable(marriageRegistrationButton)).click();
+    }
+    public void selectBirthRegistration() {
+        wait.until(ExpectedConditions.elementToBeClickable(birthRegistrationButton)).click();
     }
 }

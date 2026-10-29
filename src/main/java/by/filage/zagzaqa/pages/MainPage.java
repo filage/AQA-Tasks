@@ -10,6 +10,7 @@ import java.time.Duration;
 public class MainPage {
 
     private final By userButton = By.xpath("//button[normalize-space(.)='Войти как пользователь']");
+    private final By adminButton = By.xpath("//button[normalize-space(.)='Войти как администратор']");
 
     private final WebDriverWait wait;
 
@@ -19,5 +20,9 @@ public class MainPage {
 
     public void enterAsUser() {
         wait.until(ExpectedConditions.elementToBeClickable(userButton)).click();
+    }
+
+    public void enterAsAdmin() {
+        wait.until(ExpectedConditions.elementToBeClickable(adminButton)).click();
     }
 }

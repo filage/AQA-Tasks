@@ -1,5 +1,6 @@
 package by.filage.zagzaqa.steps;
 
+import by.filage.zagzaqa.model.ApplicantData;
 import by.filage.zagzaqa.pages.ApplicantDataPage;
 import by.filage.zagzaqa.pages.MainPage;
 import org.openqa.selenium.WebDriver;
@@ -14,9 +15,16 @@ public class ApplicantSteps {
         this.applicantDataPage = new ApplicantDataPage(driver);
     }
 
-    public void submitValidApplicant() {
+    public void submitValidApplicant(ApplicantData applicant) {
         mainPage.enterAsUser();
-        applicantDataPage.fillApplicant("Максимов", "Максим", "Максимович", "291234567", "AB123456", "Гродно, улица Тавлая, 10");
+        applicantDataPage.fillApplicant(
+                applicant.surname(),
+                applicant.name(),
+                applicant.seconName(),
+                applicant.phone(),
+                applicant.passport(),
+                applicant.adress()
+        );
         applicantDataPage.clickNext();
     }
 }
