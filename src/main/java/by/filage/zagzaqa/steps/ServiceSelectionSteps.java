@@ -14,4 +14,12 @@ public class ServiceSelectionSteps {
     public void selectDeathRegistration() {
         serviceSelectionPage.selectDeathRegistration();
     }
+
+    public void selectMarriageRegistration() {
+        serviceSelectionPage.selectMarriageRegistration();
+    }
+
+    public void selectBirthRegistration() {
+        serviceSelectionPage.selectBirthRegistration();
+    }
 }

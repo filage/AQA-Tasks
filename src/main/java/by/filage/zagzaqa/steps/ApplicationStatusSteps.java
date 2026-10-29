@@ -1,23 +1,25 @@
 package by.filage.zagzaqa.steps;
 
-import org.openqa.selenium.By;
+import by.filage.zagzaqa.pages.ApplicationStatusPage;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class ApplicationStatusSteps {
 
-    private final By statusMessage = By.xpath("//span[starts-with(normalize-space(.), 'Статус заявки:')]");
-    private final WebDriverWait wait;
+    private final ApplicationStatusPage statusPage;
 
     public ApplicationStatusSteps(WebDriver driver) {
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        statusPage = new ApplicationStatusPage(driver);
     }
 
     public String getStatus() {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(statusMessage)).getText().trim();
+        return statusPage.getStatus();
     }
 
+    public String getApplicationNumber() {
+        return statusPage.getApplicationNumber();
+    }
+
+    public void close() {
+        statusPage.close();
+    }
 }

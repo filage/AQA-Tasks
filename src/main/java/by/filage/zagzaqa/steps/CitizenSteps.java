@@ -1,5 +1,6 @@
 package by.filage.zagzaqa.steps;
 
+import by.filage.zagzaqa.model.CitizenData;
 import by.filage.zagzaqa.pages.CitizenDataPage;
 import org.openqa.selenium.WebDriver;
 
@@ -11,8 +12,8 @@ public class CitizenSteps {
         this.citizenDataPage = new CitizenDataPage(driver);
     }
 
-    public void submitValidCitizen() {
-        citizenDataPage.fillCitizen("Петров", "Михаил", "Михайлович", "2001-06-15", "MP123456", "Муж", "Гродно, улица Тавлая, 20");
+    public void submitValidCitizen(CitizenData citizen) {
+        citizenDataPage.fillCitizen(citizen.surname(), citizen.name(), citizen.secondName(), citizen.birthDate(), citizen.passport(), citizen.gender(), citizen.address());
         citizenDataPage.clickNext();
     }
 }
